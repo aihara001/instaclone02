@@ -1,0 +1,21 @@
+<%= form_with(model: @instaclo, local: true ,url: choose_new_or_edit ) do |form| %>
+  <% if @instaclo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @instaclo.errors.count %>件のエラーがあります。</h2>
+      <ul>
+
+      <% @instaclo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="instaclo_title">
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+  </div>
+  <%= form.submit %>
+<% end %>
+
+<%= link_to "一覧画面にもどる", instaclos_path %>
