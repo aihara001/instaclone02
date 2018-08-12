@@ -16,6 +16,7 @@ before_action :session_twiclo, only: [:edit, :update, :destroy, :create, :new, :
   
   def create
     @instaclo = Instaclo.new(instaclo_params)
+    @instaclo.user_id = current_user.id
     if @instaclo.save
       redirect_to instaclos_path, notice: "投稿しました！"
     else
@@ -24,6 +25,7 @@ before_action :session_twiclo, only: [:edit, :update, :destroy, :create, :new, :
   end
 
   def show
+    @favorite = current_user.favorites.find_by(instaclo_id: @instaclo.id)
   end
   
   def edit
@@ -44,6 +46,7 @@ before_action :session_twiclo, only: [:edit, :update, :destroy, :create, :new, :
   
   def confirm
     @instaclo = Instaclo.new(instaclo_params)
+    @instaclo.user_id = current_user.id
     render :new if @instaclo.invalid?
   end
   
