@@ -1,5 +1,6 @@
 class InstaclosController < ApplicationController
 before_action :set_instaclo, only: [:show, :edit, :update, :destroy]
+before_action :session_twiclo, only: [:edit, :update, :destroy, :create, :new, :index]
   
   def index
     @instaclos = Instaclo.all
@@ -16,7 +17,7 @@ before_action :set_instaclo, only: [:show, :edit, :update, :destroy]
   def create
     @instaclo = Instaclo.new(instaclo_params)
     if @instaclo.save
-      redirect_to instaclos_path, notice: "作成しました！"
+      redirect_to instaclos_path, notice: "投稿しました！"
     else
       render 'new'
     end
@@ -53,6 +54,13 @@ before_action :set_instaclo, only: [:show, :edit, :update, :destroy]
 
   def set_instaclo
     @instaclo = Instaclo.find(params[:id])
+  end
+
+  def session_twiclo
+    if logged_in?
+    else
+      render new_session_path  
+    end
   end
 
 end

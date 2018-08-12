@@ -9,6 +9,40 @@
   </head>
 
   <body>
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#gnavi">
+        <span class="sr-only">Bootstrap</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div id="gnavi" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+  
+    <% if logged_in? %>
+       <li><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></li>
+       <li><%= link_to "プロフィール", user_path(current_user.id) %></li>
+    <% else %>
+       <li><%= link_to "ログイン", new_session_path %></li>
+       <li><%= link_to "新規ユーザー登録", new_user_path %></li>
+    <% end %>
+  
+      <li><%= link_to "投稿一覧", instaclos_path %></li>
+      <li><%= link_to '新規投稿', new_instaclo_path %></li>
+
+      </ul>
+    </div>
+  </div>
+  </nav>
+
+  <% flash.each do |key, value| %>
+    <%= content_tag(:div, value, class: "#{key}") %>
+  <% end %>
+
+    
     <%= yield %>
   </body>
 </html>
