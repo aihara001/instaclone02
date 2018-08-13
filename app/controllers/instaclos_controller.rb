@@ -19,6 +19,7 @@ before_action :session_twiclo, only: [:edit, :update, :destroy, :create, :new, :
     @instaclo.user_id = current_user.id
     if @instaclo.save
       redirect_to instaclos_path, notice: "投稿しました！"
+      ContactMailer.contact_mail(@instaclo,@instaclo.user.email).deliver
     else
       render 'new'
     end

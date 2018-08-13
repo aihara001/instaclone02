@@ -1,4 +1,6 @@
 Rails.application.configure do
+  config.action_mailer.default_url_options = { host: 'ruby-03-taihara.c9users.io' }
+  config.action_mailer.delivery_method = :letter_opener
   BetterErrors::Middleware.allow_ip! "0.0.0.0/0"
   # Settings specified here will take precedence over those in config/application.rb.
 
