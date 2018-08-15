@@ -3,6 +3,8 @@
 <%= form_with(model: @instaclo, url: instaclos_path, local: true) do |form| %>
   <%= form.hidden_field :content %>
   <p>本文:<%= @instaclo.content %></p>
+  <p>画像:<%= image_tag(@instaclo.image) %></p>
+  <%= form.hidden_field :image_cache %>
   <%= form.submit  "登録" %>
 <% end %>
 

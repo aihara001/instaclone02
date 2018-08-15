@@ -53,7 +53,7 @@ before_action :session_twiclo, only: [:edit, :update, :destroy, :create, :new, :
   
   private
   def instaclo_params
-    params.require(:instaclo).permit(:content)
+    params.require(:instaclo).permit(:content, :image, :image_cache)
   end
 
   def set_instaclo

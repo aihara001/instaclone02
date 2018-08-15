@@ -1,8 +1,6 @@
 <h1><%= @user.name %>のページ</h1>
 
 <p>メールアドレス: <%= @user.email %></p>
-
-<h1>お気に入りツイート一覧</h1>
-　<% @favorites_instaclos.each do |instaclo| %>
-    <li><%= link_to "#{instaclo.content}", instaclo_path(instaclo.id) %></li>
-  <% end %>
+<p>ユーザーアイコン画像</p><br>
+<%= image_tag(@user.image.url) if @user.image.url %>
+<h1><%= link_to 'お気に入り一覧', favorite_path %></h1>

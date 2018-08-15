@@ -15,5 +15,9 @@
     <%= form.label :content %>
     <%= form.text_field :content %>
   </div>
+  <div class="instaclo_title">
+    <%= form.label :image %>
+    <%= form.file_field :image, id: :instaclo_image %>
+  </div>
   <%= form.submit %>
 <% end %>

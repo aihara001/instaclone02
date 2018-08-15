@@ -1,0 +1,12 @@
+<h1>お気に入り一覧</h1>
+<table>
+　<% @favorites_instaclos.each do |instaclo| %>
+  <tr>
+      <td>投稿者:<%= instaclo.user.name %>さん<br>
+          <%= image_tag instaclo.user.image_url (:thumb) %></td>
+      <td><%= image_tag instaclo.image %></td>
+      <td>コメント: <%= instaclo.content %></td>
+      <td><%= link_to '詳細', instaclo_path(instaclo.id) %><td>
+  </tr>
+  <% end %>
+</table>

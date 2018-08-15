@@ -1,5 +1,7 @@
 <h1>詳細画面</h1>
 
+<p>投稿画像: </p><br>
+<%= image_tag @instaclo.image %>
 <p>内容: <%= @instaclo.content %></p>
 
 <% unless @instaclo.user_id == current_user.id %>

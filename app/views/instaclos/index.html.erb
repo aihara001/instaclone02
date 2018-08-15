@@ -1,14 +1,14 @@
 <h1>投稿一覧</h1>
 <h2><%= notice %></h2>
 <table>
-  <tr>
-    <th>内容</th>
-  </tr>
 
 <% @instaclos.each do |instaclo| %>
   <tr>
-    <td><%= instaclo.content %></td>
-    <td><%= instaclo.user.name %>さんの投稿</td>
+
+    <td>投稿者:<%= instaclo.user.name %>さん<br>
+        <%= image_tag instaclo.user.image_url (:thumb) %></td>
+    <td><%= image_tag instaclo.image %></td>
+    <td>コメント:<%= instaclo.content %></td>
     <td><%= link_to '詳細', instaclo_path(instaclo.id) %></td>
     <% if instaclo.user_id == current_user.id %>
       <td><%= link_to '編集', edit_instaclo_path(instaclo.id), data: { confirm: '本当に編集していいですか？' } %></td>

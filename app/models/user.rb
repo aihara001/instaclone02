@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :instaclos, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :favorite_instaclos, through: :favorites, source: :instaclo
+  mount_uploader :image, ImageUploader
 end
