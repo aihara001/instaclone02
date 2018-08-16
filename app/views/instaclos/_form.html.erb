@@ -12,12 +12,13 @@
   <% end %>
 
   <div class="instaclo_title">
-    <%= form.label :content %>
+    <%= form.label :コメント %>
     <%= form.text_field :content %>
   </div>
   <div class="instaclo_title">
-    <%= form.label :image %>
+    <%= form.label :画像 %>
     <%= form.file_field :image, id: :instaclo_image %>
   </div>
-  <%= form.submit %>
+  <br>
+  <button type="submit" class="btn btn-warning btn-sm">投稿</button>
 <% end %>

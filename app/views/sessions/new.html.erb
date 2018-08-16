@@ -1,11 +1,15 @@
 <h1>ログイン</h1>
+<p2>未登録の方は新規ユーザー登録後にログインして下さい。</p2><br><br>
+
 <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
 
   <%= f.label :email %>
   <%= f.email_field :email %>
 
-  <%= f.label :password %>
+  <%= f.label :パスワード %>
   <%= f.password_field :password %>
 
-  <%= f.submit "Log in" %>
+  <br><br>
+
+  <button type="submit" class="btn btn-info btn-sm">ログイン</button>
 <% end %>

@@ -3,4 +3,8 @@
 <p>メールアドレス: <%= @user.email %></p>
 <p>ユーザーアイコン画像</p><br>
 <%= image_tag(@user.image.url) if @user.image.url %>
-<h1><%= link_to 'お気に入り一覧', favorite_path %></h1>
+
+<br><br>
+<button type="button" class="btn btn-warning btn-sm">
+    <%= link_to 'お気に入り一覧', favorite_path %>
+</button>

@@ -1,43 +1,44 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>InstaClone02</title>
-    <%= csrf_meta_tags %>
+    <title>InstagramClone</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="instaclos.scss">
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width">
+    
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
   </head>
 
-  <body>
-  <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#gnavi">
-        <span class="sr-only">Bootstrap</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-    <div id="gnavi" class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-  
-    <% if logged_in? %>
-       <li><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></li>
-       <li><%= link_to "プロフィール", user_path(current_user.id) %></li>
-    <% else %>
-       <li><%= link_to "ログイン", new_session_path %></li>
-       <li><%= link_to "新規ユーザー登録", new_user_path %></li>
-    <% end %>
-  
-      <li><%= link_to "投稿一覧", instaclos_path %></li>
-      <li><%= link_to '新規投稿', new_instaclo_path %></li>
+<body>
+  <header>
+          <% if logged_in? %>
+          <button type="button" class="btn btn-info btn-sm">
+             <%= link_to "ログアウト", session_path(current_user.id), method: :delete %></button>
+          <button type="button" class="btn btn-info btn-sm">
+             <%= link_to "プロフィール", user_path(current_user.id) %></button>
+          <% else %>
+          <button type="button" class="btn btn-info btn-sm">
+             <%= link_to "ログイン", new_session_path %></button>
+          <button type="button" class="btn btn-info btn-sm">
+             <%= link_to "新規ユーザー登録", new_user_path %></button>
+          <% end %>
+          <button type="button" class="btn btn-warning btn-sm">
+            <%= link_to "投稿一覧", instaclos_path %></button>
+          <button type="button" class="btn btn-warning btn-sm">
+            <%= link_to '新規投稿', new_instaclo_path %></button>
+           
+  </header>
+  <section class="main-header">
+    <%= image_tag "top7.png" %>
+  </section>
 
-      </ul>
-    </div>
-  </div>
-  </nav>
-
+  <div class="content">
+  <h2><%= notice %></h2>
     <%= yield %>
+  </div>
   </body>
 </html>

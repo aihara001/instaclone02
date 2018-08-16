@@ -1,14 +1,16 @@
-<h3>以下の内容で、送信する。</h3>
+<h3>以下の内容で、投稿しますか？</h3>
 
 <%= form_with(model: @instaclo, url: instaclos_path, local: true) do |form| %>
   <%= form.hidden_field :content %>
-  <p>本文:<%= @instaclo.content %></p>
+  <p>コメント:<%= @instaclo.content %></p>
   <p>画像:<%= image_tag(@instaclo.image) %></p>
   <%= form.hidden_field :image_cache %>
-  <%= form.submit  "登録" %>
+  <button type="submit" class="btn btn-warning btn-sm">投稿</button>
 <% end %>
+
+<br>
 
 <%= form_with(model: @instaclo, url: new_instaclo_path, local: true, method: 'get') do |form| %>
   <%= form.hidden_field :content %>
-  <%= form.submit "もどる", name: 'back' %>
+  <button type="submit" name='back' class="btn btn-default btn-sm">もどる</button>
 <% end %>

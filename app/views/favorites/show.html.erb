@@ -5,8 +5,9 @@
       <td>投稿者:<%= instaclo.user.name %>さん<br>
           <%= image_tag instaclo.user.image_url (:thumb) %></td>
       <td><%= image_tag instaclo.image %></td>
-      <td>コメント: <%= instaclo.content %></td>
-      <td><%= link_to '詳細', instaclo_path(instaclo.id) %><td>
+      <td>コメント:<%= instaclo.content %><br>
+      <button type="button" class="btn btn-success btn-sm">
+        <%= link_to '詳細', instaclo_path(instaclo.id) %></button>
   </tr>
   <% end %>
 </table>
